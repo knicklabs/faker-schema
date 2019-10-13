@@ -1,7 +1,8 @@
-import Schema, { setSeedRandom } from './lib/Schema'
+import Schema from './lib/Schema'
+import { withProbability } from './lib/withProbability'
 
 export {
   Schema,
-  setSeedRandom,
+  withProbability
 }
 export default Schema

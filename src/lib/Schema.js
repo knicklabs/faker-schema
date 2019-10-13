@@ -1,14 +1,11 @@
-import parseSchema from "./parseSchema"
+import faker from "faker"
 
-let seedRandom = () => {}
-
-export const setSeedRandom = (func = () => {}) => {
-  seedRandom = func
-}
+import postProcessSchema from "./lib/postProcessSchema"
 
 export class Schema {
-  constructor(blueprint) {
+  constructor(blueprint = () => ({})) {
     this.blueprint = blueprint
+    this.seed = undefined
   }
 
   setSeed(seed = 0) {
@@ -17,13 +14,15 @@ export class Schema {
 
   makeOne(seed) {
     if (seed || this.seed) {
-      seedRandom(seed || this.seed)
+      faker.seed(seed || this.seed)
     }
+
+    const schema = this.blueprint()
     if (this.seed) {
       this.seed = this.seed + 1
     }
-    const schema = parseBlueprint(this.blueprint)
-    return parseSchema(schema)
+
+    return postProcessSchema(schema)
   }
 
   make(num = 1, seed) {
