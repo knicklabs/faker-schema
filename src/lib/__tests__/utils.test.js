@@ -1,4 +1,4 @@
-import postProcessSchema from '../postProcessSchema'
+import { postProcessSchema } from '../utils'
 
 describe('postProcessSchema', () => {
   test('returns an empty object by default', () => {

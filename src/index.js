@@ -1,2 +1,2 @@
 export { Schema } from './lib/Schema'
-export { withProbability } from './lib/withProbability'
+export { withProbability } from './lib/helpers'

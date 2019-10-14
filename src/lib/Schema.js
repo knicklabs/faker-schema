@@ -1,6 +1,6 @@
 import faker from "faker"
 
-import { postProcessSchema } from "./postProcessSchema"
+import { postProcessSchema } from "./utils"
 
 export class Schema {
   constructor(blueprint = () => ({})) {
@@ -17,7 +17,9 @@ export class Schema {
       faker.seed(seed || this.seed)
     }
 
-    const schema = this.blueprint()
+    const schema = typeof this.blueprint === 'function' 
+      ? this.blueprint() 
+      : this.blueprint
     if (this.seed) {
       this.seed = this.seed + 1
     }
