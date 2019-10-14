@@ -10,7 +10,7 @@ export const withProbability = (value, probability = 1) => {
   }
 
   const numWithValue = Math.floor(100 * probability)
-  const numWithNull = 100 - probValue
+  const numWithNull = 100 - numWithValue
   const items = [
     ...Array(numWithValue).fill(value),
     ...Array(numWithNull).fill(null),
