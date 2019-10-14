@@ -24,6 +24,3 @@ export const postProcessSchema = (leafSchema = {}, rootSchema = leafSchema) =>
         }
     }
   }, {})
-
-
-export default postProcessSchema
