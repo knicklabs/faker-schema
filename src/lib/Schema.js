@@ -1,6 +1,6 @@
 import faker from "faker"
 
-import postProcessSchema from "./lib/postProcessSchema"
+import postProcessSchema from "./postProcessSchema"
 
 export class Schema {
   constructor(blueprint = () => ({})) {
