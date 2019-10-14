@@ -1,6 +1,6 @@
 {
   "name": "faker-schema",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Make schemas used to generate fake data",
   "main": "./dist/index.js",
   "scripts": {

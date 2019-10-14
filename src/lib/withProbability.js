@@ -15,5 +15,5 @@ export const withProbability = (value, probability = 1) => {
     ...Array(numWithValue).fill(value),
     ...Array(numWithNull).fill(null),
   ]
-  faker.helpers.shuffle(items)[0]
+  return faker.helpers.shuffle(items)[0]
 }

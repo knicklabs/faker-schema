@@ -3,14 +3,16 @@ export const postProcessSchema = (leafSchema = {}, rootSchema = leafSchema) =>
     const value = leafSchema[key]
     switch (typeof value) {
       case 'object':
-        return {
-          ...schema,
-          [key]: (() => {
-            if (value === null || Array.isArray(value)) {
-              return value
-            }
-            return postProcessSchema(value, rootSchema)
-          })()
+        if (value === null || Array.isArray(value)) {
+          return {
+            ...schema,
+            [key]: value,
+          }
+        } else {
+          return {
+            ...schema,
+            [key]: postProcessSchema(value, rootSchema)
+          }
         }
       case 'function':
         return {
