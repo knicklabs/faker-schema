@@ -6,7 +6,12 @@ describe('postProcessSchema', () => {
   })
 
   test('returns a shallow copy of a schema', () => {
-    const schema = { firstName: 'Bob', lastName: 'Belcher' }
+    const schema = { 
+      firstName: 'Bob', 
+      lastName: 'Belcher', 
+      jobTitle: null, 
+      tags: ['entrepreneur', 'parent'] 
+    }
     expect(postProcessSchema(schema)).toEqual(schema)
   })
 

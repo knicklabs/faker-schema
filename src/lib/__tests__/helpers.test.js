@@ -2,14 +2,25 @@ import { withProbability } from '../helpers'
 import faker from 'faker'
 
 describe('withProbability', () => {
-  test('result evaluates to null if value is <= zero', () => {
+  test('result evaluates to null if probability is <= zero', () => {
     const results = [withProbability('dog', 0), withProbability('dog', -100)]
     results.forEach(result => expect(result()).toEqual(null))
   })
 
-  test('result evaluates to value if value is >= one', () => {
+  test('result evaluates to value if probability is >= one', () => {
     const results = [withProbability('dog', 1), withProbability('dog', 100)]
     results.forEach(result => expect(result()).toEqual('dog'))
+  })
+
+  test('probability is set to 1 by default', () => {
+    expect(withProbability('dog')()).toEqual('dog')
+  })
+
+  test('value is invoked if it is a function', () => {
+    const schema = { animal: 'dog' }
+    const spy = jest.fn()
+    withProbability(spy, 1)(schema)
+    expect(spy).toHaveBeenCalledWith(schema)
   })
 
   test('result evaluates to value about half the time', () => {

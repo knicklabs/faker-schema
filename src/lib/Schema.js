@@ -8,7 +8,7 @@ export class Schema {
     this.seed = undefined
   }
 
-  setSeed(seed = 0) {
+  setSeed(seed = 1) {
     this.seed = seed
   }
 

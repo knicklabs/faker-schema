@@ -5,7 +5,8 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --collectCoverage"
   },
   "author": "Nickolas Kenyeres <nickolas@knicklabs.com> (https://www.kenyeres.ca)",
   "license": "ISC",
