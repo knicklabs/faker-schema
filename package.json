@@ -4,7 +4,7 @@
   "description": "Make schemas used to generate fake data",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "rimraf dist && babel src --out-dir dist",
     "test": "jest",
     "test:coverage": "jest --collectCoverage"
   },
@@ -18,7 +18,8 @@
     "@babel/preset-env": "^7.6.3",
     "babel-jest": "^24.9.0",
     "faker": "^4.1.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.0"
   },
   "peerDependencies": {
     "faker": ">=1.x"
