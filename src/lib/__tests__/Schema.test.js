@@ -68,7 +68,7 @@ describe('Schema', () => {
     expect(people[1]).toEqual(person2B)
   })
 
-  test('make returns the same results when invoked used with seed argument', () => {
+  test('make returns the same results when invoked with seed argument', () => {
     const personSchema = new Schema(fakerBlueprint)
     const person1 = personSchema.make(1, 123)
     const person2 = personSchema.make(1, 124)
