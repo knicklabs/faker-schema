@@ -1,6 +1,6 @@
 {
   "name": "faker-schema",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Create deterministic schemas with Faker",
   "main": "./dist/index.js",
   "scripts": {
