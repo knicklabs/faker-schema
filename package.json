@@ -1,7 +1,7 @@
 {
   "name": "faker-schema",
   "version": "0.0.5",
-  "description": "Make schemas used to generate fake data",
+  "description": "Create deterministic schemas with Faker",
   "main": "./dist/index.js",
   "scripts": {
     "build": "rimraf dist && babel src --out-dir dist",
@@ -10,6 +10,10 @@
   },
   "author": "Nickolas Kenyeres <nickolas@knicklabs.com> (https://www.kenyeres.ca)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/knicklabs/faker-schema.git"
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
