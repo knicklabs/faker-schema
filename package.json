@@ -9,7 +9,7 @@
     "test:coverage": "jest --collectCoverage"
   },
   "author": "Nickolas Kenyeres <nickolas@knicklabs.com> (https://www.kenyeres.ca)",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
