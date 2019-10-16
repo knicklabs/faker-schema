@@ -2,6 +2,14 @@
 
 > Create deterministic schemas with Faker
 
+[![Build Status](https://travis-ci.org/knicklabs/faker-schema.js.svg?branch=master)](https://travis-ci.org/knicklabs/faker-schema.js)
+[![Coverage Status](https://coveralls.io/repos/github/knicklabs/faker-schema/badge.svg)](https://coveralls.io/github/knicklabs/faker-schema)
+[![npm version](https://badge.fury.io/js/faker-schema.svg)](https://badge.fury.io/js/faker-schema)
+![dependencies](https://david-dm.org/knicklabs/faker-schema.js.svg)
+![node](https://img.shields.io/badge/node-12x-blue.svg)
+![node](https://img.shields.io/badge/node-10x-blue.svg)
+![Code of Conduct](https://img.shields.io/badge/%E2%88%9A-Code%20of%20Conduct-purple.svg)
+
 ## Introduction
 
 This library, `faker-schema`, provides a neat API around `faker` to deterministically create one or more pseduo-random records from schemas with advanced features like derived values and probability.
