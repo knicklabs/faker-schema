@@ -12,7 +12,7 @@
 
 ## Introduction
 
-This library, `faker-schema`, provides a neat API around `faker` to deterministically create one or more pseduo-random records from schemas with advanced features like derived values and probability.
+This library, `faker-schema`, provides a neat API around `faker` to deterministically create one or more pseudo-random records from schemas with advanced features like derived values and probability.
 
 ## Installation
 
