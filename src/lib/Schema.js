@@ -28,10 +28,9 @@ export class Schema {
     return postProcessSchema(preProcessSchema(schema))
   }
 
-  make(num = 1, seed) {
-    const results = Array(num)
+  make(num = 0, seed) {
+    return Array(num)
       .fill(0)
       .map((_, index) => this.makeOne(seed ? seed + index : seed))
-    return results.length === 1 ? results[0] : results
   }
 }

@@ -9,27 +9,32 @@ describe('Schema', () => {
     lastName: faker.name.lastName(),
   })
 
-  test('make returns an empty schema by default', () => {
+  test('makeOne returns an empty schema by default', () => {
     const schema = new Schema()
-    expect(schema.make()).toEqual({})
+    expect(schema.makeOne()).toEqual({})
   })
 
-  test('make returns a single schema identical to blueprint by default', () => {
+  test('make returns an empty array by default', () => {
+    const schema = new Schema()
+    expect(schema.make()).toEqual([])
+  })
+
+  test('returns a single schema identical to blueprint by default', () => {
     const personSchema = new Schema(blueprint)
-    expect(personSchema.make()).toEqual(blueprint)
+    expect(personSchema.makeOne()).toEqual(blueprint)
   })
 
-  test('make returns schemas identical to blueprint by default', () => {
+  test('returns schemas identical to blueprint by default', () => {
     const personSchema = new Schema(blueprint)
     const results = personSchema.make(5)
     expect(results).toHaveLength(5)
     results.forEach(result => expect(result).toEqual(blueprint))
   })
 
-  test('make returns a randomized schema when using Faker', () => {
+  test('returns a randomized schema when using Faker', () => {
     const personSchema = new Schema(fakerBlueprint)
-    const person1 = personSchema.make()
-    const person2 = personSchema.make()
+    const person1 = personSchema.makeOne()
+    const person2 = personSchema.makeOne()
     expect(person1).not.toEqual(personSchema)
     expect(person2).not.toEqual(personSchema)
     expect(person1.firstName).toBeDefined()
@@ -39,27 +44,27 @@ describe('Schema', () => {
     expect(person1).not.toEqual(person2)
   })
 
-  test('make returns a randomized schema with derived data when using faker', () => {
+  test('returns a randomized schema with derived data when using faker', () => {
     const personSchema = new Schema({
       ...fakerBlueprint,
       firstName: 'Bob',
       lastName: 'Belcher',
       fullName: ({ firstName, lastName }) => `${firstName} ${lastName}`
     })
-    const person = personSchema.make()
-    expect(person.fullName).toEqual('Bob Belcher')
+    const people = personSchema.make(1)
+    expect(people[0].fullName).toEqual('Bob Belcher')
   })
 
-  test('make returns the same randomized sequence when using Faker and seeded', () => {
+  test('returns the same randomized sequence when using Faker and seeded', () => {
     const personSchema = new Schema(fakerBlueprint)
     personSchema.setSeed(5)
     expect(personSchema.seed).toEqual(5)
-    const person1A = personSchema.make()
-    const person2A = personSchema.make()
+    const person1A = personSchema.makeOne()
+    const person2A = personSchema.makeOne()
     personSchema.setSeed(5)
     expect(personSchema.seed).toEqual(5)
-    const person1B = personSchema.make()
-    const person2B = personSchema.make()
+    const person1B = personSchema.makeOne()
+    const person2B = personSchema.makeOne()
     expect(person1A).toEqual(person1B)
     expect(person2A).toEqual(person2B)
     personSchema.setSeed(5)
@@ -68,10 +73,10 @@ describe('Schema', () => {
     expect(people[1]).toEqual(person2B)
   })
 
-  test('make returns the same results when invoked with seed argument', () => {
+  test('returns the same results when invoked with seed argument', () => {
     const personSchema = new Schema(fakerBlueprint)
-    const person1 = personSchema.make(1, 123)
-    const person2 = personSchema.make(1, 124)
+    const person1 = personSchema.makeOne(123)
+    const person2 = personSchema.makeOne(124)
     const people = personSchema.make(2, 123)
     expect(people[0]).toEqual(person1)
     expect(people[1]).toEqual(person2)
