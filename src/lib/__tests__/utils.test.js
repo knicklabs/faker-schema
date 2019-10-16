@@ -1,4 +1,5 @@
-import { postProcessSchema } from '../utils'
+import { CALLBACK_NAME, withProbability } from '../helpers'
+import { preProcessSchema, postProcessSchema } from '../utils'
 
 describe('postProcessSchema', () => {
   test('returns an empty object by default', () => {
@@ -60,5 +61,23 @@ describe('postProcessSchema', () => {
     expect(result.shippingLabel).toEqual(
       'Bob Belcher, San Francisco, United States'
     )
+  })
+})
+
+describe('preProcessSchema', () => {
+  test('returns an empty object by default', () => {
+    expect(preProcessSchema()).toEqual({})
+  })
+  test(`evals functions with name: ${CALLBACK_NAME}`, () => {
+    const schema = {
+      firstName: withProbability('Bob', 1),
+      lastName: 'Belcher',
+      fullName: ({ firstName, lastName }) => `${firstName} ${lastName}` 
+    }
+    const result = preProcessSchema(schema)
+    expect(result.firstName).toEqual('Bob')
+    expect(result.lastName).toEqual('Belcher')
+    expect(typeof result.fullName).toEqual('function')
+    expect(result.fullName.name).not.toEqual(CALLBACK_NAME)
   })
 })

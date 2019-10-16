@@ -1,6 +1,6 @@
 import faker from "faker"
 
-import { postProcessSchema } from "./utils"
+import { preProcessSchema, postProcessSchema } from "./utils"
 
 export class Schema {
   constructor(blueprint = () => ({})) {
@@ -24,7 +24,7 @@ export class Schema {
       this.seed = this.seed + 1
     }
 
-    return postProcessSchema(schema)
+    return postProcessSchema(preProcessSchema(schema))
   }
 
   make(num = 1, seed) {

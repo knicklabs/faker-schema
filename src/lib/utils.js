@@ -1,4 +1,11 @@
-export const postProcessSchema = (leafSchema = {}, rootSchema = leafSchema) =>
+import { CALLBACK_NAME } from './helpers'
+
+const processSchema = ({
+  callback,
+  leafSchema, 
+  rootSchema, 
+  shouldEvalFunc = () => true 
+}) =>
   Object.keys(leafSchema).reduce((schema, key) => {
     const value = leafSchema[key]
     switch (typeof value) {
@@ -8,16 +15,22 @@ export const postProcessSchema = (leafSchema = {}, rootSchema = leafSchema) =>
             ...schema,
             [key]: value,
           }
+        }
+        return {
+          ...schema,
+          [key]: callback(value, rootSchema)
+        }
+      case 'function':
+        if (shouldEvalFunc(value)) {
+          return {
+            ...schema,
+            [key]: value(rootSchema),
+          }
         } else {
           return {
             ...schema,
-            [key]: postProcessSchema(value, rootSchema)
+            [key]: value,
           }
-        }
-      case 'function':
-        return {
-          ...schema,
-          [key]: value(rootSchema),
         }
       default:
         return {
@@ -26,3 +39,18 @@ export const postProcessSchema = (leafSchema = {}, rootSchema = leafSchema) =>
         }
     }
   }, {})
+
+export const preProcessSchema = (leafSchema = {}, rootSchema = leafSchema) =>
+  processSchema({
+    callback: preProcessSchema,
+    leafSchema,
+    rootSchema,
+    shouldEvalFunc: func => func.name === CALLBACK_NAME,
+  })
+
+export const postProcessSchema = (leafSchema = {}, rootSchema = leafSchema) =>
+  processSchema({
+    callback: postProcessSchema,
+    leafSchema,
+    rootSchema,
+  })
