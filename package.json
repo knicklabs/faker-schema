@@ -5,11 +5,20 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "rimraf dist && babel src --out-dir dist",
-    "test": "jest",
-    "test:coverage": "jest --collectCoverage"
+    "test": "jest --collectCoverage",
+    "release": "npm run build && release-it",
+    "release:dry": "npm run build && release-it --dry-run",
+    "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls"
   },
   "author": "Nickolas Kenyeres <nickolas@knicklabs.com> (https://www.kenyeres.ca)",
   "license": "MIT",
+  "keywords": [
+    "faker",
+    "schema",
+    "deterministic",
+    "mock",
+    "fixtues"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/knicklabs/faker-schema.git"
@@ -21,8 +30,11 @@
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
     "@babel/preset-env": "^7.6.3",
     "babel-jest": "^24.9.0",
+    "coveralls": "^3.0.7",
     "faker": "^4.1.0",
     "jest": "^24.9.0",
+    "nyc": "^14.1.1",
+    "release-it": "^12.4.3",
     "rimraf": "^3.0.0"
   },
   "peerDependencies": {
