@@ -5,7 +5,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/knicklabs/faker-schema/badge.svg)](https://coveralls.io/github/knicklabs/faker-schema)
 [![npm version](https://badge.fury.io/js/faker-schema.svg)](https://badge.fury.io/js/faker-schema)
 ![node](https://img.shields.io/badge/node-12x-blue.svg)
-![node](https://img.shields.io/badge/node-10x-blue.svg)
+![node](https://img.shields.io/badge/node-14x-blue.svg)
+![node](https://img.shields.io/badge/node-16x-blue.svg)
 ![Code of Conduct](https://img.shields.io/badge/%E2%88%9A-Code%20of%20Conduct-purple.svg)
 
 ## Introduction
