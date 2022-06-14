@@ -8,7 +8,8 @@
     "test": "jest --collectCoverage",
     "release": "npm run build && release-it",
     "release:dry": "npm run build && release-it --dry-run",
-    "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
+    "coverage:dry": "nyc report --temp-directory=coverage --reporter=text-lcov"
   },
   "author": "Nickolas Kenyeres <nickolas@knicklabs.com> (https://www.kenyeres.ca)",
   "license": "MIT",
