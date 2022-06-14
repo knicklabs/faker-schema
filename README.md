@@ -2,17 +2,15 @@
 
 > Create deterministic schemas with Faker
 
-[![Build Status](https://travis-ci.org/knicklabs/faker-schema.svg?branch=master)](https://travis-ci.org/knicklabs/faker-schema)
 [![Coverage Status](https://coveralls.io/repos/github/knicklabs/faker-schema/badge.svg)](https://coveralls.io/github/knicklabs/faker-schema)
 [![npm version](https://badge.fury.io/js/faker-schema.svg)](https://badge.fury.io/js/faker-schema)
-![dependencies](https://david-dm.org/knicklabs/faker-schema.svg)
-![node](https://img.shields.io/badge/node-12x-blue.svg)
-![node](https://img.shields.io/badge/node-10x-blue.svg)
+![node](https://img.shields.io/badge/node-14x-blue.svg)
+![node](https://img.shields.io/badge/node-16x-blue.svg)
 ![Code of Conduct](https://img.shields.io/badge/%E2%88%9A-Code%20of%20Conduct-purple.svg)
 
 ## Introduction
 
-This library, `faker-schema`, provides a neat API around `faker` to deterministically create one or more pseudo-random records from schemas with advanced features like derived values and probability.
+This library, `faker-schema`, provides a neat API around `@faker-js/faker` to deterministically create one or more pseudo-random records from schemas with advanced features like derived values and probability.
 
 ## Installation
 
@@ -29,7 +27,7 @@ The Schema class is used to create schemas from a blueprint. A blueprint is a fu
 Instatiate a new Schema with a blueprint:
 
 ```
-const faker = require('faker')
+const { faker } = require('@faker-js/faker')
 const { Schema } = require('faker-schema')
 
 const personSchema = new Schema(() => ({
@@ -101,7 +99,7 @@ Blueprints for schemas can be nested any-level deep, have derived properties tha
 The following code snippet displays how to combine these advanced techniques:
 
 ```
-const faker = require('faker')
+const { faker } = require('@faker-js/faker')
 const { 
   Schema, 
   withProbability 
@@ -162,11 +160,11 @@ Example output from `console.log(person)`:
 
 ### More Information
 
-As you may have noticed, much of the heavy-lifting here comes from Faker. Consult the [Faker README](https://github.com/marak/Faker.js/) for more information.
+As you may have noticed, much of the heavy-lifting here comes from Faker. Consult the [Faker README](https://github.com/faker-js/faker) for more information.
 
 ### License
 
-Copyright (c) 2019 Nickolas Kenyeres 
+Copyright (c) 2019-2022 Nickolas Kenyeres 
 nickolas@knicklabs.com
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
