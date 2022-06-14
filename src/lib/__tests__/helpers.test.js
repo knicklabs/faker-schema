@@ -1,5 +1,5 @@
 import { withProbability } from '../helpers'
-import faker from 'faker'
+import { faker } from '@faker-js/faker'
 
 describe('withProbability', () => {
   test('result evaluates to null if probability is <= zero', () => {
@@ -28,6 +28,6 @@ describe('withProbability', () => {
     const results = Array(1000).fill(0).map(_ => withProbability('dog', 0.5)())
     const values = results.filter(val => val !== null)
     const percent = parseInt((values.length / results.length) * 100, 10)
-    expect(percent >= 49 && percent <= 51).toBe(true)
+    expect(percent >= 47 && percent <= 53).toBe(true)
   })
 })

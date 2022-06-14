@@ -1,5 +1,5 @@
 import { Schema } from '../Schema'
-import faker from 'faker'
+import { faker } from '@faker-js/faker'
 
 describe('Schema', () => {
   const blueprint = { firstName: 'Bob', lastName: 'Belcher' }

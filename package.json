@@ -39,7 +39,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "faker": ">=1.x"
+    "@faker-js/faker": ">=1.x"
   },
   "babel": {
     "presets": [
